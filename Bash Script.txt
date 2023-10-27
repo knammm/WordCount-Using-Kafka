@@ -1,0 +1,8 @@
+// Create new topic with one partition
+1. kafka-topics.sh --bootstrap-server <BROKER-IP>:<PORT> --create --topic 2153599_WordCount
+
+// Create a producer who sends messages
+2. kafka-console-producer.sh --bootstrap-server <BROKER-IP>:<PORT> --topic 2153599_WordCount
+
+// Run the Consumer python file
+3. python3 Consumer.py
