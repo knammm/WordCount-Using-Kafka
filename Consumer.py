@@ -8,7 +8,18 @@ word = []
 counter = []
 distinct_word = 0
 
-consumer = KafkaConsumer(topic, group_id=consumer_group, bootstrap_servers=[broker_uri])
+def consumer_from_offset(topic, group_id, offset):
+    # return the consumer from a certain offset
+    consumer = KafkaConsumer(bootstrap_servers=[broker_uri], group_id=group_id)
+    tp = TopicPartition(topic=topic, partition=0)
+    consumer.assign([tp])
+    consumer.seek(tp, offset)
+
+    return consumer
+
+consumer = consumer_from_offset(WC_topic, consumer_group, 0) # Read from the beginning
+# Read from the newest message
+# consumer = KafkaConsumer(WC_topic, group_id=consumer_group, bootstrap_servers=[broker_uri])
 
 flag = 1
 for message in consumer:
