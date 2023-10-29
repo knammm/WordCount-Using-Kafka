@@ -1,5 +1,7 @@
 from __future__ import print_function
 from kafka import KafkaConsumer
+from kafka import TopicPartition
+
 topic = '2153599_WordCount'
 broker_uri = '<broker_id>:<port>'
 consumer_group = 'PYTHON_EXAMPLE'
