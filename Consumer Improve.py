@@ -21,7 +21,7 @@ def consumer_from_offset(topic, group_id, offset):
 
     return consumer
 
-def appendWord(consumer_, array[], countArray[], distinctNum)
+def appendWord(consumer_, array, countArray, distinctNum)
         initial_flag = 1
         for message in consumer_:
                 input_word = message.value.decode('utf-8').strip("'")
